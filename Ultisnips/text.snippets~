@@ -1,0 +1,33 @@
+snippet clz1 "Anki cloze" i
+{{c1::$1}}
+endsnippet
+
+snippet clz2 "Anki cloze"
+{{c2::$1}}
+endsnippet
+
+snippet clz3 "Anki cloze"
+{{c3::$1}}
+endsnippet
+
+snippet clz4 "Anki cloze"
+{{c4::$1}}
+endsnippet
+
+snippet clz5 "Anki cloze"
+{{c5::$1}}
+endsnippet
+
+snippet clz6 "Anki cloze"
+{{c6::$1}}
+endsnippet
+
+snippet tr "HTML table row"
+	<tr>
+	</tr>
+endsnippet
+
+snippet td "HTML table data"
+		<td>$1</td>
+endsnippet
+
