@@ -1,19 +1,15 @@
 " Vim with all enhancements
 source $VIMRUNTIME/vimrc_example.vim
 
-set nocompatible              " be iMproved, required
-filetype off                  " required
-
-" set the runtime path to include Vundle and initialize Vundle
-" The directory should be changed in case you downloaded in case you download it somewhere else
+filetype off
+set shellslash
 set rtp+=~/vimfiles/bundle/Vundle.vim
-call vundle#begin()
+call vundle#begin('~/vimfiles/bundle')
 
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
-" All the plugins to be installed are to be mentioned here
-" inside the vundle#begin and vundle#end
+" Add plugins here.
 Plugin 'tpope/vim-fugitive'
 Plugin 'itchyny/lightline.vim'
 Plugin 'scrooloose/nerdtree'
@@ -22,6 +18,7 @@ Plugin 'sirver/ultisnips'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
+
 
 " Use the internal diff if available.
 " Otherwise use the special 'diffexpr' for Windows.
@@ -61,19 +58,13 @@ function MyDiff()
   endif
 endfunction
 
-# Tab settings
-set expandtab
+" Tab settings.
 set tabstop=4
 set shiftwidth=4
-set foldmethod=indent
-set foldenable
+set expandtab
 
-# Show line numbers
-set number
+" Show line numbers
+:set number
 
-" Fix lightline not working right away.
-set laststatus=2
-
-" Set color scheme options
-syntax enable
-colorscheme solarized
+" Show ruler
+set colorcolumn=79
