@@ -58,13 +58,21 @@ function MyDiff()
   endif
 endfunction
 
-" Tab settings.
+" Tab settings
+set expandtab
 set tabstop=4
 set shiftwidth=4
-set expandtab
+set foldmethod=indent
+set foldenable
 
 " Show line numbers
-:set number
+set number
 
-" Show ruler
-set colorcolumn=79
+" Fix lightline not working right away.
+set laststatus=2
+
+" Set color scheme options
+syntax enable
+let g:solarized_termcolors=256
+set background=dark
+colorscheme solarized
