@@ -68,6 +68,14 @@ set foldenable
 " Show line numbers
 set number
 
+" Highlight cursorline
+set cursorline
+hi clear cursorline
+
+" Show ruler
+set colorcolumn=79
+hi colorcolumn ctermbg=darkgrey
+
 " Fix lightline not working right away.
 set laststatus=2
 
@@ -75,4 +83,5 @@ set laststatus=2
 syntax enable
 let g:solarized_termcolors=256
 set background=dark
-colorscheme solarized
+colorscheme=solarized
+
