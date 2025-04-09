@@ -92,4 +92,7 @@ set listchars=space:.
 " Toggle char visibility.
 nmap <F2> :set invlist<CR>
 imap <F2> <ESC>:set invlist<CR>a
+<<<<<<< HEAD
 
+=======
+>>>>>>> 278d355d49cfeba6d967e712ecd89e2849fc055d
