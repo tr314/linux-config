@@ -85,3 +85,11 @@ let g:solarized_termcolors=256
 set background=dark
 colorscheme=solarized
 
+" Show spaces as dots.
+set list
+set listchars=space:.
+
+" Toggle char visibility.
+nmap <F2> :set invlist<CR>
+imap <F2> <ESC>:set invlist<CR>a
+
