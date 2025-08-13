@@ -1,0 +1,206 @@
+snippet scriptheader "PowerShell script header"
+<#
+.SYNOPSIS
+   Short description
+.DESCRIPTION
+   Long description
+.EXAMPLE
+   Example of how to use this cmdlet
+.EXAMPLE
+   Another example of how to use this cmdlet
+.INPUTS
+   Inputs to this cmdlet (if any)
+.OUTPUTS
+   Output from this cmdlet (if any)
+.NOTES
+   General notes
+.COMPONENT
+   The component this cmdlet belongs to
+.ROLE
+   The role this cmdlet belongs to
+.FUNCTIONALITY
+   The functionality that best describes this cmdlet.
+#>
+endsnippet
+
+snippet logargs "Hashtable of args for Write-Logger."
+$logArgs = ${ 
+    ConsoleLogLevel = 7
+    FileLogLevel = 6
+    SyslogLogLevel = 6
+    LogFilePath = $conf.LogFilePath
+    SyslogServer = 'server.host'
+    SyslogPort = $conf.SyslogPort
+    SyslogFacility = 10
+}
+endsnippet
+
+snippet logargsconf "Load logger params from json config file."
+$conf = Get-Content 'conf.json' | ConvertFrom-Json
+
+$logArgs = ${ 
+    ConsoleLogLevel = $conf.ConsoleLogLevel
+    FileLogLevel = $conf.FileLogLevel
+    SyslogLogLevel = $conf.SyslogLogLevel
+    LogFilePath = $conf.LogFilePath
+    SyslogServer = $conf.SyslogServer
+    SyslogPort = $conf.SyslogPort
+    SyslogFacility = $conf.SyslogFacility
+}
+endsnippet
+
+snippet trycatch "Try-catch statement."
+try{
+}catch{
+    Write-Logger -LogMessage '${1}' \`
+                    -LogSeverity 3 \`
+                    @logArgs
+    Write-Logger -LogMessage $error[0] \`
+                    -LogSeverity 3 \`
+                    @logArgs
+}
+endsnippet
+
+snippet wl "Write-Logger call."
+Write-Logger -LogMessage '${1}.' \`
+                    -LogSeverity ${2} \`
+                    @logArgs
+endsnippet
+
+snippet scriptparam "Script parameter."
+# ============================================================================
+# Parameter with no validation.
+# param(
+#	[Parameter(<attr_1>
+#		<attr_2>
+#		)][<type>]$<param_name>
+# )
+# Parameter with validation.
+# param(
+#	[Parameter(<attr_1>
+#		<attr_2>)]
+# 	[<validation_1()]
+# 	[<validation_2()]
+#	[<type>]$<param_name>
+# )
+# PARAMETER ATTRIBUTES (non-exhaustive list)
+# HelpMessage = Brief description for user prompt.
+# 	HelpMessage='Message...'
+# Mandatory = Paramter is required.
+# 	Mandatory=$true
+# ValueFromPipeline = Accept an entire object from the pipeline.
+# ValueFromPipelineByPropertyName = Accept an object property from the pipeline. 
+# PARAMETER VALIDATION (non-exhaustive list)
+# AllowNull = Allow a mandatory parameter to be null.
+# AllowEmptyString = Allow an empty string mandatory param.
+# AllowEmptyCollection = Allow an empty collection mandatory param.
+# ValidateCount = Specify min and max values.
+# 	ValidateCount(1, 5)
+# ValidateLength = Specify min and max length.
+# 	ValidateLength(1, 5)
+# ValidatePattern = Match a regular expression.
+# 	ValidatePattern("[0-9{4}")
+# ValidateRange = Specify a numeric range.
+#		(Positive, Negative, NonPositive, NonNegative)
+# 	ValidateRange("Positive")
+# ============================================================================
+[CmdLetBinding()]
+Param (
+      [Parameter(Mandatory=$false,
+               HelpMessage='My help message.'
+               )][string]$NonMandatoryParam='someString',
+
+      [Parameter(Mandatory=$false,
+               HelpMessage='My help message.'
+               )][bool]$MyBool=$false,
+
+      [Parameter(Mandatory=$true,
+               HelpMessage='My help message'
+               )][string]$MandatoryParam='SomeString'
+)
+endsnippet
+
+snippet param "Function parameter."
+Param (
+         [string]$SingleParam,
+         [string[]]$ArrParam
+)
+endsnippet
+
+snippet yesorno "Get a yes or no response."
+function Get-YesNoResponse {
+<#
+.DESCRIPTION
+    Returns true or false in response from a prompt.
+#>
+  param (
+      $prompt
+  )
+
+  while (1) {
+  $resp = Read-Host -Prompt "$($prompt) Enter 'y' or 'n'"
+      if ($resp.ToLower() -eq 'y') {
+          return $true
+      } elseif ($resp.ToLower() -eq 'n') {
+          return $false
+      } else {
+          Write-Host 'Invalid response. Please try again.'
+      }
+  }
+}
+endsnippet
+
+snippet getselection "Get a selection from a list of choices."
+function Get-Selection() {
+    Param (
+             [string[]]$optionList  
+    )
+
+    while (1) {
+        Write-Host 'Please select one of the following options:'
+        for ($i=0;$i-lt$optionList.Length;$i++) {
+            Write-Host "$($i):$($optionList[$i])"
+        }
+        $selection = Read-Host 'Enter your selection or Ctrl + C to exit'
+        try {
+            $selection = [convert]::ToInt32($selection)
+        } catch {
+            "Unable to convert '$selection' to a number."
+            "Please enter a number between 0 and $($optionList.Length - 1)."
+            continue
+        }
+        
+        if (
+                ($selection -gt -1) -and 
+                ($selection -lt ($optionList.Length))
+            ){
+                return $optionList[$selection]
+            } else { 
+                Write-Host "Please enter a number between 0 and $($optionList.Length - 1)."
+            }
+    }
+}
+endsnippet
+
+$resp = getSelection @('local', 'remote-1', 'remote-2')
+Write-Host $resp
+
+snippet ifelse "If-Else statement."
+if (${1}) {
+}else{
+}
+endsnippet
+
+snippet skeleton "Power script skeleton."
+# ============================================================================
+# CONSTANTS
+
+# ============================================================================
+# FUNCTIONS
+
+# ============================================================================
+# PRE-RUN CHECKS
+
+# ============================================================================
+# RUN	
+endsnippet

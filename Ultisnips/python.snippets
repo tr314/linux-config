@@ -1,0 +1,50 @@
+snippet argparse "Get command line args."
+if __name__ == '__main__':
+	parser = argparse.ArgumentParser()
+
+	parser.add_argument('arg1',				# Positional arg.
+		help='arg1 help message'
+	parser.add_argument('-c', '--count')	# Option that takes a value.
+	parser.add_argument('-v', '--verbose',	# On/off flag.
+							action='store_true'
+						)  
+
+	args = parser.parse_args()
+
+	main(
+		args.filename,
+		args.count,
+		args.verbose
+	)
+endsnippet
+
+snippet matplotlib "Basic matplotlib plot."
+import matplotlib.pyplot as plt
+
+'''
+Basic colors.
+b = blue
+g = green
+r = red
+c = cyan
+m = magenta
+y = yellow
+k = black
+w = white
+
+Basic markers
+o = circle
+^ = triangle
+s = square
+* = star
+'''
+
+x1, y1 = ((2,3), (2,-1))
+x2, y2 = ((2,-3), (-3,-1))
+
+fig, ax = plt.subplots()
+plt.plot(x1,y1, 'ro')
+plt.plot(x2,y2, 'rb')
+
+plt.show()
+endsnippet
