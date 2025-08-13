@@ -48,3 +48,15 @@ plt.plot(x2,y2, 'rb')
 
 plt.show()
 endsnippet
+
+snippet lw
+lw = LoggerWrapper(
+	config['LOGGER_NAME'],
+	config['LOGGING_CONFIG'],
+	config['LOG_FILE'],
+	config['SYSLOG_SERVER'],
+	file_log_level = config['FILE_LOG_LEVEL'],
+	console_log_level = config['CONSOLE_LOG_LEVEL'],
+	syslog_log_level = config['SYSLOG_LOG_LEVEL']
+)
+endsnippet
