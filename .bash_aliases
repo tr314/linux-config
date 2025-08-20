@@ -14,4 +14,4 @@ alias py="Python3"
 alias pip="Python3 -m pip"
 
 # Prompt
-PS1='\e[1;34m${PWD}\n\e[0m\e[1;31m>\e[0m'
+PS1="\e[1;33;1;42m\u@\h:\e[1;36;1;46m\w\e[0m\n\e[1;31m>\e[0m"
