@@ -8,12 +8,12 @@ echo "Installing bash aliases."
 cp linux-config/.bash_aliases .
 
 echo "Installing vimrc."
-cp linux-config/_vimrc ./.vimrc
+cp linux-config/.vimrc ./.vimrc
 
 echo "Installing vim plugins."
-mkdir vimfiles
-cp -r linux-config/bundle ./vimfiles
-cp -r linux-config/Ultisnips ./vimfiles
+mkdir .vim
+cp -r linux-config/bundle ./vim
+cp -r linux-config/Ultisnips ./vim
 
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
