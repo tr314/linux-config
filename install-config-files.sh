@@ -12,8 +12,8 @@ cp linux-config/.vimrc ./.vimrc
 
 echo "Installing vim plugins."
 mkdir .vim
-cp -r linux-config/bundle ./vim
-cp -r linux-config/Ultisnips ./vim
+cp -rf linux-config/bundle ./vim
+cp -rf linux-config/UltiSnips ./vim
 
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
