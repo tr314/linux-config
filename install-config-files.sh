@@ -15,6 +15,6 @@ mkdir .vim
 cp -rf linux-config/bundle ./vim
 cp -rf linux-config/UltiSnips ./vim
 
-git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+git force-clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
 echo "Installation complete."
