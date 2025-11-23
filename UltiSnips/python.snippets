@@ -21,6 +21,10 @@ endsnippet
 snippet matplotlib "Basic matplotlib plot."
 import matplotlib.pyplot as plt
 
+# Uncomment for non-GUI systems.
+# import matplotlib
+# matplotlib.use('TkAgg')  # or 'Qt5Agg'
+
 '''
 Basic colors.
 b = blue
@@ -44,7 +48,7 @@ x2, y2 = ((2,-3), (-3,-1))
 
 fig, ax = plt.subplots()
 plt.plot(x1,y1, 'ro')
-plt.plot(x2,y2, 'rb')
+plt.plot(x2,y2, 'rs')
 
 plt.show()
 endsnippet
