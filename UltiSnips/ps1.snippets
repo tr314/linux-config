@@ -103,6 +103,8 @@ snippet scriptparam "Script parameter."
 # ValidateRange = Specify a numeric range.
 #		(Positive, Negative, NonPositive, NonNegative)
 # 	ValidateRange("Positive")
+# ValidateScript = Test against a scriptblock.
+#     [ValidateScript({$_ -ne ''})]  # Throw on empty string.
 # ============================================================================
 [CmdLetBinding()]
 Param (
