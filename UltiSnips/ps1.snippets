@@ -104,7 +104,18 @@ snippet scriptparam "Script parameter."
 #		(Positive, Negative, NonPositive, NonNegative)
 # 	ValidateRange("Positive")
 # ValidateScript = Test against a scriptblock.
-#     [ValidateScript({$_ -ne ''})]  # Throw on empty string.
+#    [ValidateScript({$_ -ne ''})]  # Throw on empty string.
+#    Example that checks for PoSH script path.   
+#   [ValidateScript({
+#        if (-Not(Test-Path $_ -PathType Leaf)){
+#             throw "TargetScript paramter must be a valid file path."
+#          }
+#         if (-Not($_.EndsWith('ps1'))){
+#           throw "TargetScript parameter must be a PowerShell file."
+#           }
+#         return $true
+#    })]
+
 # ============================================================================
 [CmdLetBinding()]
 Param (
