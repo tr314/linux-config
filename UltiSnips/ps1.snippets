@@ -118,6 +118,8 @@ snippet scriptparam "Script parameter."
 
 # ============================================================================
 [CmdLetBinding()]
+# Honor WhatIf param
+# [CmdletBinding(SupportsShouldProcess=$true)] 
 Param (
       [Parameter(Mandatory=$false,
                HelpMessage='My help message.'
