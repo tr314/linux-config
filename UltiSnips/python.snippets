@@ -53,14 +53,19 @@ plt.plot(x2,y2, 'rs')
 plt.show()
 endsnippet
 
-snippet lw
-lw = LoggerWrapper(
-	config['LOGGER_NAME'],
-	config['LOGGING_CONFIG'],
-	config['LOG_FILE'],
-	config['SYSLOG_SERVER'],
-	file_log_level = config['FILE_LOG_LEVEL'],
-	console_log_level = config['CONSOLE_LOG_LEVEL'],
-	syslog_log_level = config['SYSLOG_LOG_LEVEL']
-)
+snippet logging
+'''
+import json
+import logging
+import logging.config
+
+import graypy		# For syslog messages.
+
+'''
+
+with open('logger.cfg', 'r') as f:
+    logging.config.dictConfig(json.load(f))
+    logger = logging.getLogger('main')
+
 endsnippet
+
