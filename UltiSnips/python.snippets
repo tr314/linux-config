@@ -2,8 +2,8 @@ snippet argparse "Get command line args."
 if __name__ == '__main__':
 	parser = argparse.ArgumentParser()
 
-	parser.add_argument('arg1',				# Positional arg.
-		help='arg1 help message'
+	parser.add_argument('filename',				# Positional arg.
+		help='arg1 help message')
 	parser.add_argument('-c', '--count')	# Option that takes a value.
 	parser.add_argument('-v', '--verbose',	# On/off flag.
 							action='store_true'
