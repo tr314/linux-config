@@ -65,7 +65,15 @@ import graypy		# For syslog messages.
 
 with open('logger.cfg', 'r') as f:
     logging.config.dictConfig(json.load(f))
-    logger = logging.getLogger('main')
+	logger = logging.getLogger('main')
 
 endsnippet
 
+snippet try "Try-except block."
+try:
+  	$1
+except:
+	pass
+finally:
+	pass
+endsnippet
