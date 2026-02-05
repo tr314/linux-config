@@ -10,6 +10,7 @@ alias dcu="docker compose up"
 alias dcd="docker compose down"
 
 # Python
+alias ev='source ./.venv/bin/activate'
 alias py=$(which python)
 alias pip="py -m pip"
 
