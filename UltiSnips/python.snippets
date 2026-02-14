@@ -60,3 +60,38 @@ lw = LoggerWrapper(
 	syslog_log_level = config['SYSLOG_LOG_LEVEL']
 )
 endsnippet
+
+snippet get_choice "User choice prompt."
+def get_choice(
+    message:str,
+    prompt:str,
+    choices:list
+    )->int:
+
+    while 1:
+        print(message)
+        for idx, choice in enumerate(choices):
+           print(f'{idx}:{choice}')
+        selection = input(prompt)
+        if selection.isnumeric():
+            if 0 <= int(selection) < len(choices):
+                break
+        print('Invalid selection. Please try again.')
+    return int(selection)
+endsnippet
+
+snippet yes_or_no "Interactive yes or no prompt."
+def get_yes_or_no(
+        prompt:str
+    )->int:
+   
+    while 1:
+        print(prompt)
+        resp = input('Enter "y" for yes, "n" for no:')
+        if resp.lower() == 'y':
+            return 1
+        elif resp.lower() == 'n':
+            return 0
+        else:
+            print('Invalid response Please enter "y" or "n".')
+endsnippet
