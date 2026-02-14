@@ -103,8 +103,23 @@ snippet scriptparam "Script parameter."
 # ValidateRange = Specify a numeric range.
 #		(Positive, Negative, NonPositive, NonNegative)
 # 	ValidateRange("Positive")
+# ValidateScript = Test against a scriptblock.
+#    [ValidateScript({$_ -ne ''})]  # Throw on empty string.
+#    Example that checks for PoSH script path.   
+#   [ValidateScript({
+#        if (-Not(Test-Path $_ -PathType Leaf)){
+#             throw "TargetScript paramter must be a valid file path."
+#          }
+#         if (-Not($_.EndsWith('ps1'))){
+#           throw "TargetScript parameter must be a PowerShell file."
+#           }
+#         return $true
+#    })]
+
 # ============================================================================
 [CmdLetBinding()]
+# Honor WhatIf param
+# [CmdletBinding(SupportsShouldProcess=$true)] 
 Param (
       [Parameter(Mandatory=$false,
                HelpMessage='My help message.'
@@ -192,15 +207,10 @@ if (${1}) {
 endsnippet
 
 snippet skeleton "Power script skeleton."
-# ============================================================================
-# CONSTANTS
-
-# ============================================================================
-# FUNCTIONS
-
-# ============================================================================
-# PRE-RUN CHECKS
-
-# ============================================================================
-# RUN	
+begin {
+}
+process {
+}
+end {
+}
 endsnippet

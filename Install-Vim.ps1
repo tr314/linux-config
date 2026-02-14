@@ -1,6 +1,6 @@
 <#
 Install and configure Vim.
-*>
+#>
 
 cd ~
 
