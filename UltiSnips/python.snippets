@@ -111,3 +111,22 @@ def get_yes_or_no(
         else:
             print('Invalid response Please enter "y" or "n".')
 endsnippet
+
+snippet filelock "Python cross platform file lock."
+from filelock import FileLock
+
+lock = FileLock("myapp.lock")
+
+# Implement with with.
+with lock:
+	# Inside this block, we hold the lock
+	print("I have the lock!")
+
+# Implement with try.
+lock.acquire()
+try:
+	print("I have the lock")
+finally:
+	lock.release()
+endsnippet
+
