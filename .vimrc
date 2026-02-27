@@ -15,6 +15,7 @@ Plugin 'itchyny/lightline.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'sirver/ultisnips'
+Plugin 'dense-analysis/ale'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -57,6 +58,11 @@ function MyDiff()
     let &shellxquote=l:shxq_sav
   endif
 endfunction
+
+" Configure filetype associations.
+au BufRead,BufNewFile *cfg set filetype=json
+au BufRead,BufNewFile *cfg.template set filetype=json
+
 
 " Tab settings
 set expandtab
