@@ -130,3 +130,20 @@ finally:
 	lock.release()
 endsnippet
 
+snippet projecteuler "Project Euler imports."
+# Add Project Euler to sys.path.
+import os
+import sys
+
+sys.path.append(os.environ['PROJECT_EULER_PATH']
+
+# Import functions from util.
+from util import seive
+endsnippet
+
+snippet def "Function definition."
+def ($1)->${2:int}:
+		'''${3:Function comment.}'''
+    return 0
+endsnippet
+
