@@ -206,7 +206,7 @@ if (${1}) {
 }
 endsnippet
 
-snippet skeleton "Power script skeleton."
+snippet skeleton "PowerShell script skeleton."
 begin {
 }
 process {
@@ -214,3 +214,31 @@ process {
 end {
 }
 endsnippet
+
+snippet graphskeleton "PowerShell Graph script skeleton."
+begin {
+	graphArgs = @{
+		TenantId = $config.TenantId
+		ClientId = $config.ClientId
+		CertificateThumbprint = $config.CertificateThumbprint
+	}
+
+	try{
+		Connect-MgGraph @graphArgs
+		}catch{
+			# Handle error.
+		}
+}
+
+process {
+	# Query API.
+}
+end {
+	try{
+		Disconnect-MgGraph
+		}catch{
+			# Handle error.
+		}
+}
+endsnippet
+
