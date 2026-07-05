@@ -2,9 +2,10 @@ snippet argparse "Get command line args."
 if __name__ == '__main__':
 	parser = argparse.ArgumentParser()
 
-	parser.add_argument('filename',				# Positional arg.
+	parser.add_argument('filename',				# Positional arg with typical params.
+		type=str,
 		help='arg1 help message')
-	parser.add_argument('-c', '--count')	# Option that takes a value.
+	parser.add_argument('-c', '--count', default=5)	# Option that takes a value.
 	parser.add_argument('-v', '--verbose',	# On/off flag.
 							action='store_true'
 						)  
@@ -143,6 +144,6 @@ endsnippet
 
 snippet def "Function definition."
 def ${1:main}(${2:n:int})->${3:int}:
-    ''' ${4:Function comment.} '''
+	''' ${4:Function comment.} '''
     return 0
 endsnippet
