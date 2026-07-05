@@ -76,7 +76,7 @@ set number
 
 " Highlight cursorline
 set cursorline
-hi clear cursorline
+hi clear ctermbg=darkgrey
 
 " Show ruler
 set colorcolumn=79
