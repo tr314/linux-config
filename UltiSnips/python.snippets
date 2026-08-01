@@ -1,21 +1,21 @@
 snippet argparse "Get command line args."
 if __name__ == '__main__':
-	parser = argparse.ArgumentParser()
+    parser = argparse.ArgumentParser()
 
-	parser.add_argument('filename',				# Positional arg.
-		help='arg1 help message')
-	parser.add_argument('-c', '--count')	# Option that takes a value.
-	parser.add_argument('-v', '--verbose',	# On/off flag.
-							action='store_true'
-						)  
+'''
+    parser.add_argument('filename',        # Positional arg.
+        help='arg1 help message')
+    parser.add_argument('-c', '--count')    # Option that takes a value.
+    parser.add_argument('-v', '--verbose'   # On/off flag.
+       action='store_true'
+    )
+'''
 
-	args = parser.parse_args()
+    parser.add_argument(${1:n}, type=${2:int})
 
-	main(
-		args.filename,
-		args.count,
-		args.verbose
-	)
+    args = parser.parse_args()
+
+    main(args.n)
 endsnippet
 
 snippet matplotlib "Basic matplotlib plot."
