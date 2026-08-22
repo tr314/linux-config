@@ -1,3 +1,5 @@
+-- ===========================================================================
+-- Vim configuration
 -- Tab settings
 vim.opt.tabstop = 4
 vim.opt.expandtab = true
@@ -11,7 +13,9 @@ vim.opt.cursorline = true
 
 -- Show line numbers.
 vim.opt.number = true
+-- ===========================================================================
 
+-- ===========================================================================
 -- Python LSP
 vim.lsp.config['pyright'] = {
   cmd = { 'pyright-langserver', '--stdio' },
@@ -36,3 +40,27 @@ vim.lsp.config['pyright'] = {
 }
 
 vim.lsp.enable('pyright')   
+-- ===========================================================================
+
+-- ===========================================================================
+-- Configure debugger
+
+-- ===========================================================================
+-- Install packages
+
+-- Debugger packages
+vim.pack.add{
+        { src = 'https://github.com/mfussenegger/nvim-dap.git',
+        dependencies = 
+            'https://github.com/rcarriga/nvim-dap-ui.git',
+            'https://github.com/nvim-neotest/nvim-nio.git',
+            'https://github.com/rcarriga/nvim-dap-virtual-text.git'
+    }
+}
+
+local dap = require('dap')
+
+-- ===========================================================================
+vim.pack.update()
+-- ===========================================================================
+
