@@ -2,9 +2,12 @@
 *~
 *.swo
 *.swp
+*
 
 # Python files
 *.pyc
 *.pckl
 *.venv*
 *__pycache__*
+
+**/packer_compiled.lua
