@@ -2,7 +2,6 @@
 *~
 *.swo
 *.swp
-*
 
 # Python files
 *.pyc
