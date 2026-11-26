@@ -1,3 +1,2 @@
 require("tim")
-require("packer")
 
